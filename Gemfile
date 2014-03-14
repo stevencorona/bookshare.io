@@ -5,6 +5,7 @@ gem 'rails', '4.0.2'
 gem 'pg'
 gem 'rails_12factor'
 gem 'foreman'
+gem 'puma'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
