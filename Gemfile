@@ -21,6 +21,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'slim'
 
+# APIs
+gem 'openlibrary'
+
 # Documentation stuff
 group :doc do
   gem 'sdoc', require: false
