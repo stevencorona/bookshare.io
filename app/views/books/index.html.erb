@@ -6,7 +6,7 @@
 <table>
 
   <tr>
-    <td><%= book.title %></td>
+    <td><%= link_to book.title, book_path(book.isbn) %></td>
   </tr>
 
 </table>
