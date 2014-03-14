@@ -19,5 +19,9 @@ module Bookshare
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    # Load the fonts from the vendor folder to get bootstrap fonts!
+    config.assets.paths << "#{Rails}/vendor/assets/fonts"
+
   end
 end
