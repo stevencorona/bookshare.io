@@ -1,0 +1,9 @@
+p.lead I'm moving and I have to away all of my books
+p So I'm giving them away. For free. No strings attached
+p Just pay USPS flat-rate media-mail
+
+- @books.each do |book|
+  table
+    tr
+      td= link_to book_cover_image(book), book_path(book.isbn)
+      td= link_to book.title, book_path(book.isbn)
