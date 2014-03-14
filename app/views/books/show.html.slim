@@ -1,6 +1,23 @@
-h2=@book.title
+.container
+  .row
+    .col-md-12
+      .media
+        a.pull-left.hidden-xs
+          =book_cover_image(@book, width: 275, class: "media-object")
+        .media-body
+          h4.media-heading=@book.title
+          p By #{@book.author}, #{@book.pages} Pages (#{@book.published_at})
+          span.label.label-primary Paperback
+          hr
+          .col-md-8
+            - unless @book.notes.nil?
+              h5 Notes from Steve
+              p =@book.notes
 
-=book_cover_image(@book)
-=amazon_link @book
-
-= link_to "Get it!"
+            .hidden-sm.hidden-xs
+              h5 Book Description from Amazon
+              p.small =@book.description
+          .col-md-4
+            a.btn.btn-primary.btn-lg.btn-block Claim this book!
+            br
+            =amazon_link(@book, class: "btn btn-lg btn-default btn-block", target: "_new")
