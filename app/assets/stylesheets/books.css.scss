@@ -1,3 +1,26 @@
 // Place all the styles related to the books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.jumbotron {
+  margin-top:-20px;
+}
+
+img.cover {
+  border: 1px solid #eee;
+}
+
+#about p {
+  font-size:14px;
+}
+
+#about .avatar {
+  border-radius: 20px;
+  padding: 2px;
+  margin-left:8px;
+  border: 1px solid #ccc;
+}
+
+.book {
+  height:400px;
+}
