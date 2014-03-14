@@ -6,7 +6,8 @@
 <table>
 
   <tr>
-    <td><%= link_to book.title, book_path(book.isbn) %></td>
+    <td><%= link_to book_cover_image(book), book_path(book.isbn) %>
+      <%= link_to book.title, book_path(book.isbn) %></td>
   </tr>
 
 </table>
