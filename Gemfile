@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'slim'
 
 # APIs
-gem 'openlibrary'
+gem 'googlebooks'
 
 # Documentation stuff
 group :doc do
