@@ -14,7 +14,8 @@ Bookshare::Application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :books, param: :isbn do
     member do
-      post 'claim'
+      post   'claim'
+      delete 'claim' => 'books#unclaim'
     end
   end
 

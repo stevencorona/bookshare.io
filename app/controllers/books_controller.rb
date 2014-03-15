@@ -24,4 +24,9 @@ class BooksController < ApplicationController
     redirect_to book_path(@book.isbn)
   end
 
+  def unclaim
+    session[:books].delete(params[:isbn])
+    redirect_to book_path(params[:isbn])
+  end
+
 end
