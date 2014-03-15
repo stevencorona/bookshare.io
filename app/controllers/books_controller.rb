@@ -12,14 +12,14 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new
-    @book.isbn = params[:isbn]
 
     # Pull data from OpenLibrary
-    data = GoogleBooks.search("isbn:#{@book.isbn}").first
+    data = GoogleBooks.search("isbn:#{params[:isbn]}").first
 
     @book.title       = data.title
     @book.description = data.description
     @book.pages       = data.page_count
+    @book.isbn        = data.isbn_10
 
     # Good enough for now; Just take the name of the first
     # author.
