@@ -7,7 +7,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find_by_isbn(params[:isbn])
+    @book = Book.find_by_isbn!(params[:isbn])
   end
 
   def create
@@ -15,6 +15,13 @@ class BooksController < ApplicationController
     loader.publish
 
     redirect_to loader.book
+  end
+
+  def claim
+    # TODO: Handle user having > 5 books
+    @book = Book.find_by_isbn!(params[:isbn])
+    session[:books] << @book.isbn
+    redirect_to book_path(@book.isbn)
   end
 
 end

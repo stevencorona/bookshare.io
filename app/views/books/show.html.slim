@@ -18,6 +18,17 @@
               h5 Book Description
               p.small =@book.description
           .col-md-4
-            =link_to "Claim this book!", claim_book_path(@book.isbn), method: :post, class: "btn btn-primary btn-lg btn-block"
+            - if session[:books].include?(@book.isbn)
+              p
+                | You claimed this book! You can choose up to 
+                =books_left
+                |  more books!
+                a href=""  (Unclaim)
+              p
+                b You can lose this book if someone else pays for shipping first!
+            - elsif books_left <= 0
+              p You've claimed the maximum of 5 books.
+            - else
+              =link_to "Claim this book!", claim_book_path(@book.isbn), method: :post, class: "btn btn-primary btn-lg btn-block"
             br
             =amazon_link(@book, class: "btn btn-lg btn-default btn-block", target: "_new")
