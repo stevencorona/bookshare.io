@@ -12,7 +12,11 @@ Bookshare::Application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  resources :books, param: :isbn
+  resources :books, param: :isbn do
+    member do
+      post 'claim'
+    end
+  end
 
   # Example resource route with options:
   #   resources :products do
