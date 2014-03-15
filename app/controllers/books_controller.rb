@@ -15,19 +15,17 @@ class BooksController < ApplicationController
     @book.isbn = params[:isbn]
 
     # Pull data from OpenLibrary
-    data = Openlibrary::Data.find_by_isbn(@book.isbn)
+    data = GoogleBooks.search("isbn:#{@book.isbn}").first
 
-    @book.title = data.title
-    @book.pages = data.pages
-
-    # Good enough; Concatonate the subtitle onto the title
-    unless data.subtitle.nil?
-      @book.title += ": #{data.subtitle}"
-    end
+    @book.title       = data.title
+    @book.description = data.description
+    @book.pages       = data.page_count
 
     # Good enough for now; Just take the name of the first
     # author.
-    @book.author = data.authors[0]["name"]
+    @book.author = data.authors
+
+    @book.published_year = data.published_date
 
     @book.save
 

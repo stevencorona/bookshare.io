@@ -5,7 +5,8 @@ module BooksHelper
 
   def book_cover_image(book, opts={})
     opts[:width]  ||= 200
-    image_tag "https://s3.amazonaws.com/thumbs.bookshare.io/#{book.isbn}/cover.jpg", opts
+    #image_tag "https://s3.amazonaws.com/thumbs.bookshare.io/#{book.isbn}/cover.jpg", opts
+    image_tag "http://images.amazon.com/images/P/#{book.isbn}.01.LZZZZZZZ.jpg", opts
   end
 
 end

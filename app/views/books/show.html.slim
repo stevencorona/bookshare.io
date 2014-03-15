@@ -6,7 +6,7 @@
           =book_cover_image(@book, width: 275, class: "media-object")
         .media-body
           h4.media-heading=@book.title
-          p By #{@book.author}, #{@book.pages} Pages (#{@book.published_at})
+          p By #{@book.author}, #{@book.pages} Pages (#{@book.published_year})
           span.label.label-primary Paperback
           hr
           .col-md-8
@@ -15,7 +15,7 @@
               p =@book.notes
 
             .hidden-sm.hidden-xs
-              h5 Book Description from Amazon
+              h5 Book Description
               p.small =@book.description
           .col-md-4
             a.btn.btn-primary.btn-lg.btn-block Claim this book!
