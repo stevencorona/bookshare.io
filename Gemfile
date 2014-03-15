@@ -23,6 +23,7 @@ gem 'slim'
 
 # APIs
 gem 'googlebooks'
+gem 'cloudinary'
 
 # Documentation stuff
 group :doc do

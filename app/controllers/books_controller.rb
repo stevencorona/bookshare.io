@@ -29,6 +29,9 @@ class BooksController < ApplicationController
 
     @book.save
 
+    # Upload the image to Cloudinary (TODO: Make this pretty)
+    Cloudinary::Uploader.upload("http://images.amazon.com/images/P/#{@book.isbn}.01.LZZZZZZZ.jpg", :public_id => "#{@book.isbn}_cover")
+
     redirect_to @book
 
   end

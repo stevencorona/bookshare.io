@@ -3,7 +3,7 @@
     .col-md-12
       .media
         a.pull-left.hidden-xs
-          =book_cover_image(@book, width: 275, class: "media-object")
+          =book_cover_image(@book, width: 200, height: 300, class: "media-object")
         .media-body
           h4.media-heading=@book.title
           p By #{@book.author}, #{@book.pages} Pages (#{@book.published_year})
