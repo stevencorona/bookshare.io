@@ -18,6 +18,6 @@
               h5 Book Description
               p.small =@book.description
           .col-md-4
-            a.btn.btn-primary.btn-lg.btn-block Claim this book!
+            =link_to "Claim this book!", claim_book_path(@book.isbn), method: :post, class: "btn btn-primary btn-lg btn-block"
             br
             =amazon_link(@book, class: "btn btn-lg btn-default btn-block", target: "_new")
