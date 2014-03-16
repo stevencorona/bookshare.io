@@ -11,8 +11,9 @@ Bookshare::Application.routes.draw do
     collection do
       get 'search'
     end
-
   end
+
+  resources :orders
 
   get '/faq' => 'pages#faq'
 
