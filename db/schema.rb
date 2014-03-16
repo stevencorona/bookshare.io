@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140315005800) do
+ActiveRecord::Schema.define(version: 20140316192845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,5 +28,7 @@ ActiveRecord::Schema.define(version: 20140315005800) do
     t.integer  "pages"
     t.integer  "published_year"
   end
+
+  add_index "books", ["isbn"], name: "index_books_on_isbn", using: :btree
 
 end
