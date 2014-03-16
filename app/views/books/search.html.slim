@@ -1,0 +1,16 @@
+.container
+  .row
+    .col-md-6
+      ol.breadcrumb
+        li
+          a href=books_path Book Index
+        li Search: "<b>#{params[:query]}</b>"
+
+  - @books.each do |book|
+    .media.col-md-8
+      a.pull-left href=book_url(book.isbn)
+        =book_cover_image(book, width: 75, height: 110, class: "media-object")
+      .media-body
+        a href=book_url(book.isbn)
+          h4.media-heading =book.title
+        =book.description

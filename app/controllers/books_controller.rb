@@ -30,6 +30,7 @@ class BooksController < ApplicationController
   end
 
   def search
+    @books = Book.text_search(params[:query])
   end
 
 end

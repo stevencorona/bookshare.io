@@ -12,10 +12,6 @@
 .container
 
   .row
-    .col-md-6
-      ol.breadcrumb
-        li
-          a href=books_path Book Index
   - @books.each do |book|
       .col-md-3.book
         a href=book_url(book.isbn)
