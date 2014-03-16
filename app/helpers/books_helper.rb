@@ -18,9 +18,7 @@ module BooksHelper
   end
 
   def books_left_nav
-    if session[:books].size == 0
-      "You can choose up to 5 books"
-    else
+    if session[:books].size != 0
       "You've chosen #{session[:books].size}/#{BOOK_LIMIT} books"
     end
   end
