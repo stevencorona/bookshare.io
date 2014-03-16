@@ -9,10 +9,11 @@ nav.navbar.navbar-default role="navigation"
 
     .collapse.navbar-collapse#navbar-main
       ul.nav.navbar-nav
-        li.active
-          a href=books_path Book Index
-        li
-          a href="#" Blog
+        =nav_link "Book Listing", books_path
+        =nav_link "FAQ", "/faq"
+        =nav_link "Blog", "/blog"
+        =nav_link "Contact", "/contact"
+
       ul.nav.navbar-nav.navbar-right
         li
           a href="#"
