@@ -29,4 +29,8 @@ class BooksController < ApplicationController
     redirect_to book_path(params[:isbn])
   end
 
+  def search
+    @books = Book.text_search(params[:query])
+  end
+
 end

@@ -7,8 +7,13 @@ Bookshare::Application.routes.draw do
       post   'claim'
       delete 'claim' => 'books#unclaim'
     end
+
+    collection do
+      get 'search'
+    end
+
   end
 
   get '/faq' => 'pages#faq'
-  
+
 end
