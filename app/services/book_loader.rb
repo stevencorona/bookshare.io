@@ -25,6 +25,19 @@ class BookLoader
     @book.isbn           = data.isbn_10
     @book.author         = data.authors
     @book.published_year = data.published_date
+
+    book_category(data.categories)
+  end
+
+  def book_category(category)
+    @category = Category.where(name: category).first
+
+    unless @category
+      @category = Category.create(name: category)
+    end
+
+    @book.category = @category
+
   end
 
   def book_cover
