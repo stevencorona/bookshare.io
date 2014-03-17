@@ -1,15 +1,17 @@
 class BooksController < ApplicationController
 
+  BOOKS_PER_PAGE=32
+
   respond_to :html, :json
   protect_from_forgery except: [:create]
 
   def index
-    @books = Book.where(status: :avaliable).all
+    @books = Book.where(status: :avaliable).page(params[:page]).per_page(BOOKS_PER_PAGE)
   end
 
   def category
     @category = Category.find(params[:id])
-    @books    = @category.books.where(status: :avaliable).all
+    @books    = @category.books.where(status: :avaliable).page(params[:page]).per_page(BOOKS_PER_PAGE)
     render :index
   end
 

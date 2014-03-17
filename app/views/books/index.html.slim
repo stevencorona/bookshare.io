@@ -22,3 +22,7 @@
         a href=book_url(book.isbn)
           h4 =book.title
           =book_cover_image(book, class: "cover")
+
+  .row
+    .col-md-12
+      =will_paginate @collection, renderer: BootstrapPagination::Rails
