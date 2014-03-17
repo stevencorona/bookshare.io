@@ -10,12 +10,14 @@ Bookshare::Application.routes.draw do
 
     collection do
       get 'search'
+      get 'category/:id' => 'books#category'
+      get 'categories'
     end
   end
 
   resources :orders do
     collection do
-      post 'shipping'      
+      post 'shipping'
       get  'payment'
     end
   end

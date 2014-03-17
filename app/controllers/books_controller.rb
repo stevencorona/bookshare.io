@@ -6,6 +6,16 @@ class BooksController < ApplicationController
     @books = Book.where(status: :avaliable).all
   end
 
+  def category
+    @category = Category.find(params[:id])
+    @books    = @category.books.where(status: :avaliable).all
+    render :index
+  end
+
+  def categories
+    @categories = Category.all
+  end
+
   def show
     @book = Book.find_by_isbn!(params[:isbn])
   end

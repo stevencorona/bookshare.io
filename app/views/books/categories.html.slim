@@ -1,0 +1,7 @@
+.container
+  h1 Genres
+
+  ul
+    - @categories.each do |category|
+      li
+        a href="/books/category/#{category.id}" =category.name
