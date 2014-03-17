@@ -1,5 +1,6 @@
 class Book < ActiveRecord::Base
   include ActiveModel::Transitions
+  belongs_to :category
 
   state_machine attribute_name: :status do
     state :avaliable

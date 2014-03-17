@@ -7,7 +7,7 @@
         .media-body
           h4.media-heading=@book.title
           p By #{@book.author}, #{@book.pages} Pages (#{@book.published_year})
-          span.label.label-primary Paperback
+          a href="/books/category/#{@book.category.id}" #{@book.category.name}
           hr
           .col-md-8
             - unless @book.notes.nil?

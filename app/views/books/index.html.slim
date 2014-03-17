@@ -9,8 +9,13 @@
       h4 Who's doing this?
       img.pull-right.avatar src="https://www.gravatar.com/avatar/ffcfdf2d103c3f808af3ab81f07f6646?s=96"
       p I'm Steve Corona, and I'm moving to San Francisco in April. I love books, but I can't take them all with me, so I'm giving them away for free.
-.container
 
+.container
+  - if @category
+    ol.breadcrumb
+      li
+        a href=books_path Book Index
+      li Category: #{@category.name}
   .row
   - @books.each do |book|
       .col-md-3.book
