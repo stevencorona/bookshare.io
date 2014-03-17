@@ -1,0 +1,66 @@
+.container
+  h2 Shipping Information
+  .row
+    .col-sm-12
+      .stepwizard
+        .stepwizard-row
+          .stepwizard-step
+            button.btn.btn-primary.btn-circle disabled="disabled" 1
+            p Shipping
+          .stepwizard-step
+            button.btn.btn-default.btn-circle disabled="disabled" 2
+            p Payment
+          .stepwizard-step
+            button.btn.btn-default.btn-circle disabled="disabled" 3
+            p Done!
+  .row
+    .col-md-6
+      p.lead I'm shipping your books using USPS Media Mail
+      p This makes it super cheap to ship you the books, but I need to know your address so I can calculate the costs.
+
+      = form_tag "/orders/shipping", class: "form-horizontal" do |f|
+        .form-group
+          label.control-label.col-sm-3 for="order[name]" Name:
+          .col-sm-6
+            input.form-control name="order[name]" type="text" placeholder="Enter your Name"
+        .form-group
+          label.control-label.col-sm-3 for="order[address1]" Address Line 1:
+          .col-sm-8
+            input.form-control name="order[address1]" type="text" placeholder="Enter your Address"
+        .form-group
+          label.control-label.col-sm-3 for="order[address2]" Address Line 2:
+          .col-sm-8
+            input.form-control name="order[address2]" type="text" placeholder="Enter your Address (optional)"
+        .form-group
+          label.control-label.col-sm-3 for="order[city]" City:
+          .col-sm-6
+            input.form-control name="order[city]" type="text" placeholder="Enter your City"
+        .form-group
+          label.control-label.col-sm-3 name="order[state]" for="name" State/Region:
+          .col-sm-6
+            input.form-control name="order[state]" type="text" placeholder="Enter your State/Region/Province"
+        .form-group
+          label.control-label.col-sm-3 for="order[zip]" Zip/Postal Code:
+          .col-sm-6
+            input.form-control name="order[zip]" type="text" placeholder="Enter your Zip/Postal Code"
+        .form-group
+          label.control-label.col-sm-3 for="order[country]" Country:
+          .col-sm-6
+            =country_select("order", "country", ["United States of America"] )
+        button.btn.btn-primary type="submit" Calculate Shipping
+    .col-md-6
+      p.lead I'm going to send you these books
+
+      table.table.table-striped
+
+        thead
+          tr
+            th ISBN
+            th Title
+            th Retail Price
+        tbody
+          - @order.books.each do |book|
+            tr
+              td =book.isbn
+              td =book.title
+              td $29.95

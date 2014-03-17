@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # Basic gems to make the framework work
 gem 'rails', '4.0.2'
 gem 'rails_12factor'
+gem 'country_select'
+gem "transitions", :require => ["transitions", "active_model/transitions"]
 
 # Webserving— make it work
 gem 'foreman'
@@ -25,6 +27,7 @@ gem 'redcarpet'
 # APIs
 gem 'googlebooks'
 gem 'cloudinary'
+gem 'stripe'
 
 # Documentation stuff
 group :doc do

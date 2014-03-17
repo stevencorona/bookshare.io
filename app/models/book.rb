@@ -1,4 +1,18 @@
 class Book < ActiveRecord::Base
+  include ActiveModel::Transitions
+
+  state_machine attribute_name: :status do
+    state :avaliable
+    state :reserved
+
+    event :reserve do
+      transitions to: :reserved, from: [:avaliable]
+    end
+
+    event :unreserve do
+      transitions to: :avaliable, from: [:reserved]
+    end
+  end
 
   def self.text_search(query)
 

@@ -19,8 +19,8 @@ nav.navbar.navbar-default role="navigation"
           input.form-control text="text" name="query" placeholder="Search by Title"
         button.btn.btn-default type="submit"
           span.glyphicon.glyphicon-search
-
-      ul.nav.navbar-nav.navbar-right
-        li
-          a href="#"
-            =books_left_nav
+      - if @order.paid?
+        a.button.btn.btn-success.navbar-btn.navbar-right href=order_path(@order) View Order
+      - unless @order.paid? || @order.books.count == 0
+        a.button.btn.btn-success.navbar-btn.navbar-right href=new_order_path Pay for shipping!
+        p.navbar-text.navbar-right.books_left =books_left_nav
