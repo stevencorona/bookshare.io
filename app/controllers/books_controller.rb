@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
 
+  respond_to :html, :json
   protect_from_forgery except: [:create]
 
   def index
@@ -21,10 +22,16 @@ class BooksController < ApplicationController
   end
 
   def create
+
+    # TODO: Move token auth to a helper
+    if params[:token].nil? || params[:token] != ENV['SECRET_TOKEN']
+      return render status: 401, nothing: true
+    end
+
     loader = BookLoader.new(params[:isbn], cover: :amazon, data: :google)
     loader.publish
 
-    redirect_to loader.book
+    respond_with loader.book
   end
 
   def claim
