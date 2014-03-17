@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 gem 'rails_12factor'
 gem 'country_select'
+gem 'will_paginate-bootstrap'
 gem "transitions", :require => ["transitions", "active_model/transitions"]
 
 # Webserving— make it work
