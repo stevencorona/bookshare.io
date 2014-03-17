@@ -14,12 +14,12 @@ module BooksHelper
   end
 
   def books_left
-    BOOK_LIMIT - session[:books].size
+    BOOK_LIMIT - @order.items.count
   end
 
   def books_left_nav
-    if session[:books].size != 0
-      "You've chosen #{session[:books].size}/#{BOOK_LIMIT} books"
+    if @order.items.count != 0
+      "You've chosen #{@order.items.count}/#{BOOK_LIMIT} books"
     end
   end
 end

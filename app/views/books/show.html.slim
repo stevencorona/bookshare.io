@@ -18,7 +18,9 @@
               h5 Book Description
               p.small =@book.description
           .col-md-4
-            - if session[:books].include?(@book.isbn)
+            - if @order.paid?
+              p You've already placed your order! Thanks!
+            - elsif @order.items.where(book_isbn: @book.isbn).count == 1
               p
                 | You claimed this book! You can choose up to
                 =" #{books_left}"

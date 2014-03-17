@@ -1,0 +1,94 @@
+.container
+  h2 Pay for shipping, get books
+  .row
+    .col-sm-12
+      .stepwizard
+        .stepwizard-row
+          .stepwizard-step
+            button.btn.btn-default.btn-circle disabled="disabled" 1
+            p Shipping
+          .stepwizard-step
+            button.btn.btn-primary.btn-circle disabled="disabled" 2
+            p Payment
+          .stepwizard-step
+            button.btn.btn-default.btn-circle disabled="disabled"  3
+            p Done!
+  .row
+    .col-md-6
+      .row
+        .col-md-8
+          p.lead Breakdown of Costs
+
+          table.table.table-striped
+            thead
+              tr
+                th Description
+                th Cost
+
+            tbody
+              tr
+                td USPS Media Mail (Flat-Rate)
+                td =number_to_currency(@shipment.shipping_rate/100.0)
+              tr
+                td Stripe Payment Processing Fee
+                td =number_to_currency(@shipment.gateway_rate/100.0)
+              tr
+                td 6x6x6 Box + Packing Tape
+                td =number_to_currency(@shipment.packing_rate/100.0)
+              tr
+                td Optional Donation
+                td#donation_amount =number_to_currency(@shipment.donation_rate/100.0)
+            tfoot
+              tr
+                td
+                  b Total Cost
+                td#total_amount data-amount=@shipment.total
+                  b =number_to_currency(@shipment.total/100.0)
+      .row
+        .col-md-12
+          =form_tag orders_path, id: "payment"
+            input#token  name="token"  type="hidden" value=""
+            input#email  name="email"  type="hidden" value=""
+            label.checkbox-inline
+              input name="donation" type="checkbox" id="donation" value="yes"
+                b Optional
+                |: Include <b>$3</b> donation to help cover hosting/packing costs?
+                span.help-block Helps with the costs for Heroku, CloudFlare, Domain, and RubyMotion.
+          hr
+          h4
+            | Total Charge:&nbsp;
+            span#total_charge =number_to_currency(@shipment.total/100.0)
+
+          button.btn.btn-primary.btn-lg#checkout Pay for Shipping
+
+    .col-md-6
+      .row
+        .col-md-12
+          p.lead I'm going to send you these books
+
+          table.table.table-striped
+
+            thead
+              tr
+                th ISBN
+                th Title
+                th Retail Price
+            tbody
+              - @books.each do |book|
+                tr
+                  td =book.isbn
+                  td =book.title
+                  td $29.95
+
+      .row
+        .col-md-12
+          p.lead To this address
+          p
+            | <b>#{@order.name}</b> <br>
+            | #{@order.address1} <br>
+            - unless @order.address2.blank?
+              | #{@order.address2} <br>
+            | #{@order.city}, #{@order.state} #{@order.zip}<br>
+            | #{@order.country}
+
+<script src="https://checkout.stripe.com/checkout.js"></script>
