@@ -72,13 +72,11 @@
               tr
                 th ISBN
                 th Title
-                th Retail Price
             tbody
               - @books.each do |book|
                 tr
                   td =book.isbn
                   td =book.title
-                  td $29.95
 
       .row
         .col-md-12

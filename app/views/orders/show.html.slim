@@ -15,13 +15,11 @@
           tr
             th ISBN
             th Title
-            th Retail Price
         tbody
           - @order.books.each do |book|
             tr
               td =book.isbn
               td =book.title
-              td $29.95
     .col-md-3
       p.lead To this address
 
