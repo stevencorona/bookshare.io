@@ -13,7 +13,8 @@ nav.navbar.navbar-default role="navigation"
         =nav_link "Filter by Genre", "/books/categories"
         =nav_link "FAQ", "/faq"
         =nav_link "Blog", "http://bookshare.roon.io", "target" => "_new"
-        =nav_link "Contact", "/contact"
+        li
+          a#contact href="" Contact
 
       form.navbar-form.navbar-left role="search" method="get" action=search_books_path
         .form-group
