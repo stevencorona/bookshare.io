@@ -13,4 +13,4 @@
       .media-body
         a href=book_url(book.isbn)
           h4.media-heading =book.title
-        =book.description
+        =truncate(book.description, length: 400)
