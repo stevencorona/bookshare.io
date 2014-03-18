@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/stevencorona/bookshare.io.png?label=ready&title=Ready)](https://waffle.io/stevencorona/bookshare.io)
 # Bookshare.io
 
 I'm moving to San Francisco and I need to get rid of my (200+) books. I want them to go to good homes.
