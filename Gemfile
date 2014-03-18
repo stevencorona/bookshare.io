@@ -6,6 +6,7 @@ gem 'rails_12factor'
 gem 'country_select'
 gem 'will_paginate-bootstrap'
 gem "transitions", :require => ["transitions", "active_model/transitions"]
+gem 'newrelic_rpm'
 
 # Webserving— make it work
 gem 'foreman'
