@@ -2,15 +2,46 @@
 
 .jumbotron
   .container
-    .col-md-8
-      h1 Get books for free
-      p.lead No strings attached. Just pay for flat-rate shipping ($5.50).
-    .col-md-4#about
-      h4 Who's doing this?
-      img.pull-right.avatar src="https://www.gravatar.com/avatar/ffcfdf2d103c3f808af3ab81f07f6646?s=96"
-      p I'm Steve Corona, and I'm moving to San Francisco in April. I love books, but I can't take them all with me, so I'm giving them away for free.
+    .col-md-12
+      center
+        h1 I'm giving away my books
+        p.lead
+          b Take up to five for free.
+          |  No strings attached. Just pay a few bucks for shipping.
+        br
+        br
+        a.btn.btn-primary.btn-lg See what books I have
 
 .container
+  .row
+    .col-md-12
+      center
+        h2 How does it work?
+        p.lead Pick five books. Pay for flat-rate shipping. Get them in mail.
+
+  .row#questions
+    .col-md-4
+      .question-block
+        h4 Why?
+        p
+          markdown:
+            I'm moving to San Francisco in April and can't take all of my 250+ books with me. I want them to go
+            to good homes.
+    .col-md-4
+      .question-block
+        h4 How much is shipping?
+        p
+          markdown:
+            About $5. I'm using USPS Media Mail, so it's only $0.50 per pound after the first pound. I ask you to
+            cover the price of the box and credit card processing fee, too.
+    .col-md-4
+      .question-block
+        h4 What kinds of books do you have?
+        p
+          markdown:
+            Everything. Fiction, to non-fiction, to technical books. I love to read. Check out the "Genre Listing"
+            if you're only looking for a particular type.
+
   - if @category
     ol.breadcrumb
       li
