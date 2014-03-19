@@ -7,9 +7,10 @@ module BooksHelper
   end
 
   def book_cover_image(book, opts={})
-    opts[:width]  ||= 150
-    opts[:height] ||= 225
-    opts[:crop]   ||= "fill"
+    opts[:width]   ||= 150
+    opts[:height]  ||= 225
+    opts[:crop]    ||= "fill"
+
     cl_image_tag("#{book.isbn}_cover.jpg", opts)
   end
 
