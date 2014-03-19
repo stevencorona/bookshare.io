@@ -47,12 +47,14 @@
       li
         a href=books_path Book Index
       li Category: #{@category.name}
-  .row
-  - @books.each do |book|
+
+  .row#books
+    - @books.each do |book|
       .col-md-3.book
-        a href=book_url(book.isbn)
-          h4 =book.title
-          =book_cover_image(book, class: "cover")
+        center
+          h6 =book.title.split(":").first
+          a href=book_url(book.isbn)
+            =book_cover_image(book, class: "cover")
 
   .row
     .col-md-12
