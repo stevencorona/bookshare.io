@@ -3,10 +3,22 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .jumbotron {
-  margin-top:-20px;
-  background-image: url('/assets/background.jpg');
-  color: white;
+  background-color: #fff;
   height: 300px;
+  border-bottom: 10px solid #eee;
+  padding-bottom: 350px;
+}
+
+#questions {
+  height: 350px;
+}
+
+#questions .question-block {
+  margin-top:50px;
+  border: 2px solid #A38683;
+  padding:20px;
+  height: 200px;
+  border-radius: 10px;
 }
 
 img.cover {

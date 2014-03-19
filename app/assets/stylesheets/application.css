@@ -12,3 +12,36 @@
  *= require bootstrap
  *= require_tree .
  */
+
+.navbar-bookshare {
+    background-color:#fff;
+    color:#333;
+    border-bottom: 10px solid #eee !important;
+    border-radius: 0 !important;
+    padding:5px 20px 5px 20px;
+}
+
+.navbar-bookshare .navbar-nav > li > a {
+    color:#333;
+    font-family: "Helvetica Neue";
+    font-weight: 200;
+}
+.navbar-bookshare .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #333;
+    background-color:#fff;
+}
+.navbar-bookshare .navbar-brand {
+    color:#333;
+    font-family: 'Poiret One', cursive;
+    font-weight:800;
+}
+
+.btn-primary {
+  background-color: #fff !important;
+  color: #333 !important;
+  text-transform:uppercase;
+  font-family: "Arial";
+  font-weight:200 !important;
+  padding: 10px 30px 10px 30px !important;
+  border: 3px solid #87ABC5 !important;
+}
