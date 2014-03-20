@@ -25,6 +25,8 @@ class BookLoader
     @book.isbn           = data.isbn_10 || @isbn
     @book.author         = data.authors
     @book.published_year = data.published_date
+    @book.ratings_count  = data.ratings_count
+    @book.average_rating = data.average_rating
 
     book_category(data.categories)
   end
