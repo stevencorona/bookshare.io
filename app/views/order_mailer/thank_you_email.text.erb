@@ -1,0 +1,29 @@
+Yo <%= @order.name.split(" ").first %>,
+
+I just got the list of books you asked for- rad!
+
+Thanks for supporting my experiment. I hope you read the books and put them
+to good use!
+
+If you wouldn't mind sharing on social media, that'd be cool. Something like:
+
+"Just nabbed <%= @order.books.count %> books for free from https://bookshare.io!"
+
+ORDER DETAILS
+=============
+
+Order ID: <%= @order.id %> (https://bookshare.io/orders/<%= @order.id %>)
+Paid: <%= @order.total_amount %>
+
+Your books:
+<% @order.books.each do |book| %>
+<%= book.title %>
+<% end %>
+
+Thanks again!
+
+-s
+@stevencorona (http://twitter.com/stevencorona)
+
+P.S Your books should arrive in 1-2 weeks. I'll send you an email when they
+get shipped but unfortunately USPS Media Mail does not have tracking numbers!
