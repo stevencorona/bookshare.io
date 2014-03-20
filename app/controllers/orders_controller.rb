@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
 
   def new
+    redirect_to order_path(@order) if @order.duplicate?
   end
 
   def shipping
@@ -27,6 +28,10 @@ class OrdersController < ApplicationController
   end
 
   def create
+
+    # Prevent duplicate submission
+    return redirect_to order_path(@order) if @order.paid?
+
     @order.email = params[:email]
     @order.token = params[:token]
 
@@ -37,9 +42,9 @@ class OrdersController < ApplicationController
     @order.total_amount    = @shipment.total
     @order.donation_amount = @shipment.donation_rate
 
-    if !@order.paid?
-      @order.save
+    redirect_to order_path
 
+    if @order.save
       @payment = Payment.new(@order)
       @payment.charge
 
@@ -52,7 +57,8 @@ class OrdersController < ApplicationController
         value: @order.id,
         expires: 1.year.from_now
       }
-
+    else
+      @order.duplicate!
     end
 
     redirect_to order_path(@order)
@@ -63,6 +69,8 @@ class OrdersController < ApplicationController
 
   def show
     @order ||= Order.find(params[:id])
+
+    render :duplicate if @order.duplicate?
   end
 
 end
