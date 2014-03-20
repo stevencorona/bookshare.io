@@ -37,18 +37,23 @@ class OrdersController < ApplicationController
     @order.total_amount    = @shipment.total
     @order.donation_amount = @shipment.donation_rate
 
-    @order.save
+    if !@order.paid?
+      @order.save
 
-    @payment = Payment.new(@order)
-    @payment.charge
+      @payment = Payment.new(@order)
+      @payment.charge
 
-    @order.reserve_books
-    @order.paid!
+      @order.reserve_books
+      @order.paid!
 
-    cookies[:order] = {
-      value: @order.id,
-      expires: 1.year.from_now
-    }
+      OrderMailer.thank_you_email(@order).deliver
+
+      cookies[:order] = {
+        value: @order.id,
+        expires: 1.year.from_now
+      }
+
+    end
 
     redirect_to order_path(@order)
 
