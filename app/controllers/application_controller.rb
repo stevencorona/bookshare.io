@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   private
   def setup_order
     @order          = Order.find_by_id(session[:order]) || Order.find_by_id(cookies[:order]) || Order.create!
+    @selected       = @order.books.map(&:isbn)
     session[:order] = @order.id
   end
 

@@ -54,7 +54,7 @@
         center
           h6 =book.title.split(":").first
           a href=book_url(book.isbn)
-            =book_cover_image(book, class: "cover")
+            =book_cover_image(book, class: @selected.include?(book.isbn) ? "cover selected" : "cover")
 
   .row
     .col-md-12
