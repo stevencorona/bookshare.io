@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140320122808) do
+ActiveRecord::Schema.define(version: 20140320210007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140320122808) do
     t.float    "average_rating", default: 0.0
   end
 
+  add_index "books", ["category_id"], name: "index_books_on_category_id", using: :btree
   add_index "books", ["isbn"], name: "index_books_on_isbn", using: :btree
 
   create_table "categories", force: true do |t|
@@ -47,6 +48,9 @@ ActiveRecord::Schema.define(version: 20140320122808) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "items", ["book_isbn"], name: "index_items_on_book_isbn", using: :btree
+  add_index "items", ["order_id"], name: "index_items_on_order_id", using: :btree
 
   create_table "orders", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "name"
@@ -64,5 +68,7 @@ ActiveRecord::Schema.define(version: 20140320122808) do
     t.datetime "updated_at"
     t.string   "status"
   end
+
+  add_index "orders", ["email"], name: "index_orders_on_email", using: :btree
 
 end
