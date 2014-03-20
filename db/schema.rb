@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20140320122808) do
     t.integer  "pages"
     t.integer  "published_year"
     t.integer  "category_id"
-    t.integer  "ratings_count"
-    t.decimal  "average_rating"
+    t.integer  "ratings_count",  default: 0
+    t.float    "average_rating", default: 0.0
   end
 
   add_index "books", ["isbn"], name: "index_books_on_isbn", using: :btree
