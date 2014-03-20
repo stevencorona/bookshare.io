@@ -2,11 +2,16 @@ class BookLoader
 
   attr_reader :book
 
+  def self.refresh(book)
+    loader = BookLoader.new(book.isbn, book: book)
+    loader.publish
+  end
+
   def initialize(isbn, opts)
     opts[:cover] ||= :amazon
     opts[:data]  ||= :google
 
-    @book = Book.new
+    @book = opts[:book] || Book.new
     @isbn = isbn
   end
 
@@ -25,8 +30,8 @@ class BookLoader
     @book.isbn           = data.isbn_10 || @isbn
     @book.author         = data.authors
     @book.published_year = data.published_date
-    @book.ratings_count  = data.ratings_count
-    @book.average_rating = data.average_rating
+    @book.ratings_count  = data.ratings_count  || 0
+    @book.average_rating = data.average_rating || 0.0
 
     book_category(data.categories)
   end
