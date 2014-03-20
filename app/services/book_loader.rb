@@ -22,7 +22,7 @@ class BookLoader
     @book.title          = data.title
     @book.description    = data.description
     @book.pages          = data.page_count
-    @book.isbn           = data.isbn_10
+    @book.isbn           = data.isbn_10 || @isbn
     @book.author         = data.authors
     @book.published_year = data.published_date
 
