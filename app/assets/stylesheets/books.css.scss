@@ -5,20 +5,55 @@
 .jumbotron {
   background-color: #fff;
   height: 300px;
-  border-bottom: 10px solid #eee;
-  padding-bottom: 350px;
+}
+
+.jumbotron h1 {
+  font-family: "clavo";
+  font-weight: 400;
+  padding-bottom: 20px;
+}
+
+h1 {
+  font-family: "clavo";
+  font-weight: 400;
+}
+
+h2, h3 {
+  font-family: "clavo";
+}
+
+h4, h5 {
+  font-family: "jaf-facitweb";
+}
+
+p.lead {
+  font-family: "freight-sans-pro";
 }
 
 #questions {
-  height: 350px;
+  margin-bottom: 60px;
 }
 
-#questions .question-block {
+#questions .panel {
   margin-top:50px;
-  border: 2px solid #A38683;
-  padding:20px;
   height: 200px;
-  border-radius: 10px;
+  font-size: 15px;
+  font-family: "Helvetica Neue";
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px !important;
+  border: 3px solid #93AACE;
+  background-color: #fff;
+  color: #333;
+}
+
+#questions .panel-heading {
+  background-color: #93AACE;
+  color: #fff;
+  border: 0px;
+  border-radius:0px;
+}
+
+#questions .panel-body {
+  margin: 15px 20px 0 20px;
 }
 
 img.cover {
@@ -36,11 +71,11 @@ img.cover {
   border: 1px solid #ccc;
 }
 
-#books {
+#books .col-md-3 {
+  height:320px;
 }
 
 .book {
-  padding-top:40px;
   height:300px;
 }
 

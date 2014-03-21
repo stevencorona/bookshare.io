@@ -1,6 +1,6 @@
 Bookshare::Application.routes.draw do
 
-  root 'books#index'
+  root 'pages#index'
 
   resources :books, param: :isbn do
     member do

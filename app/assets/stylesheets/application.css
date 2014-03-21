@@ -16,34 +16,92 @@
 .navbar-bookshare {
     background-color:#fff;
     color:#333;
-    border-bottom: 10px solid #eee !important;
+    border-bottom: 3px solid #E0E5EC !important;
     border-radius: 0 !important;
-    padding:5px 20px 5px 20px;
+    /*padding: 5px 20px 5px 20px;*/
+}
+
+#navbar-main {
+  padding-top:5px;
 }
 
 .navbar-bookshare .navbar-nav > li > a {
-    color:#333;
-    font-family: "Helvetica Neue";
-    font-weight: 200;
+    color:#4B8FC3;
+    font-family: "freight-sans-pro";
+    font-weight: 400;
+    font-size: 18px;
 }
 .navbar-bookshare .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
-    color: #333;
     background-color:#fff;
+    padding-top:15px;
 }
+
+.navbar-bookshare .navbar-nav a:hover {
+  background-color: #fff !important;
+  color: #95C0E1 !important;
+}
+
 .navbar-bookshare .navbar-brand {
     color:#333;
     font-family: 'Poiret One', cursive;
     font-weight:800;
+    font-size:31px;
 }
 
-.btn-primary {
+.brand {
+  font-family: 'Poiret One', cursive;
+  font-weight:800;
+  font-size:24px;
+  color: #666;
+}
+
+#footer #branding {
+}
+
+#footer p.small {
+  margin:0px !important;
+  color: #666;
+  font-family: "jaf-facitweb";
+}
+
+.btn {
   background-color: #fff !important;
   color: #333 !important;
   text-transform:uppercase;
-  font-family: "Arial";
-  font-weight:200 !important;
+  font-family: "jaf-facitweb";
+  font-size: 14px !important;
+  font-weight:400 !important;
   padding: 10px 30px 10px 30px !important;
-  border: 3px solid #87ABC5 !important;
+  border: 3px solid #eee !important;
+}
+
+.btn:hover {
+  transition: all .2s ease-in;
+}
+
+.btn-primary:hover {
+  background-color: #4071BF !important;
+  color: #fff !important;
+}
+
+.btn-primary {
+  color: #4071BF !important;
+  border: 3px solid #4071BF !important;
+}
+
+.btn-success {
+  color: #226722 !important;
+  border: 3px solid #C5E3AB !important;
+}
+
+.btn-success:hover {
+  background-color: #C5E3AB !important;
+  color: #226722 !important;
+}
+
+.navbar-btn {
+  padding: 5px 10px 5px 10px !important;
+  font-size:12px !important;
 }
 
 html, body {
@@ -54,15 +112,15 @@ html, body {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -60px;
+  margin: 0 auto -120px;
 }
 
 #push, #footer {
-  height: 60px;
+  height: 120px;
 }
 
 #footer {
-  background-color: #f5f5f5;
+  background-color: #E0E5EC;
 }
 
 #footer p {
