@@ -19,7 +19,12 @@ html lang="en"
 
   body
     == render 'nav'
-    == yield
+
+    #wrap
+      == yield
+      #push
+
+    == render 'footer'
 
     == render 'google_analytics'
     == render 'uservoice'
