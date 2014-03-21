@@ -9,20 +9,14 @@ nav.navbar.navbar-bookshare role="navigation"
 
     .collapse.navbar-collapse#navbar-main
       ul.nav.navbar-nav
-        =nav_link "Book Listing", books_path
+        =nav_link "All Books", books_path
         =nav_link "Filter by Genre", "/books/categories"
         =nav_link "FAQ", "/faq"
         =nav_link "Blog", "http://bookshare.roon.io", "target" => "_new"
         li
           a#contact href="" Contact
 
-      form.navbar-form.navbar-left role="search" method="get" action=search_books_path
-        .form-group
-          input.form-control text="text" name="query" placeholder="Search by Title"
-        button.btn.btn-default type="submit"
-          span.glyphicon.glyphicon-search
       - if @order.paid?
         a.button.btn.btn-success.navbar-btn.navbar-right href=order_path(@order) View Order
       - unless @order.paid? || @order.books.count == 0
         a.button.btn.btn-success.navbar-btn.navbar-right href=new_order_path Pay for shipping!
-        p.navbar-text.navbar-right.books_left =books_left_nav

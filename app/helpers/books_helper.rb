@@ -7,20 +7,15 @@ module BooksHelper
   end
 
   def book_cover_image(book, opts={})
-    opts[:width]   ||= 150
-    opts[:height]  ||= 225
+    opts[:width]   ||= 200
+    opts[:height]  ||= 300
     opts[:crop]    ||= "fill"
+    opts[:gravity] ||= "north"
 
     cl_image_tag("#{book.isbn}_cover.jpg", opts)
   end
 
   def books_left
     BOOK_LIMIT - @order.items.count
-  end
-
-  def books_left_nav
-    if @order.items.count != 0
-      "You've chosen #{@order.items.count}/#{BOOK_LIMIT} books"
-    end
   end
 end

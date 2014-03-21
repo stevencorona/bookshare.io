@@ -4,6 +4,8 @@ html lang="en"
     title bookshare
 
     =stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    <script type="text/javascript" src="//use.typekit.net/xfd0rvb.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
     =csrf_meta_tags
 
@@ -18,12 +20,11 @@ html lang="en"
     <![endif]-->
 
   body
-    == render 'nav'
 
     #wrap
+      == render 'nav'
       == yield
       #push
-
     == render 'footer'
 
     == render 'google_analytics'

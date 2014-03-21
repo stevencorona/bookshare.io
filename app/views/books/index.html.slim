@@ -1,46 +1,7 @@
-// The hero in the middle
-
-.jumbotron
-  .container
-    .col-md-12
-      center
-        h1 I'm giving away my books
-        p.lead
-          b Take up to five for free.
-          |  No strings attached. Just pay a few bucks for shipping.
-        br
-        br
-        a.btn.btn-primary.btn-lg See what books I have
-
 .container
   .row
     .col-md-12
-      center
-        h2 How does it work?
-        p.lead Pick five books. Pay for flat-rate shipping. Get them in mail.
-
-  .row#questions
-    .col-md-4
-      .question-block
-        h4 Why?
-        p
-          markdown:
-            I'm moving to San Francisco in April and can't take all of my 250+ books with me. I want them to go
-            to good homes.
-    .col-md-4
-      .question-block
-        h4 How much is shipping?
-        p
-          markdown:
-            About $5. I'm using USPS Media Mail, so it's only $0.50 per pound after the first pound. I ask you to
-            cover the price of the box and credit card processing fee, too.
-    .col-md-4
-      .question-block
-        h4 What kinds of books do you have?
-        p
-          markdown:
-            Everything. Fiction, to non-fiction, to technical books. I love to read. Check out the "Genre Listing"
-            if you're only looking for a particular type.
+      h1 All of my books
 
   - if @category
     ol.breadcrumb
@@ -50,9 +11,8 @@
 
   .row#books
     - @books.each do |book|
-      .col-md-3.book
-        center
-          h6 =book.title.split(":").first
+      .col-md-3
+        .book
           a href=book_url(book.isbn)
             =book_cover_image(book, class: @selected.include?(book.isbn) ? "cover selected" : "cover")
 
