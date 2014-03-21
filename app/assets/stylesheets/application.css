@@ -40,10 +40,11 @@
   background-color: #fff !important;
   color: #333 !important;
   text-transform:uppercase;
-  font-family: "Arial";
+  font-family: "Helvetica Neue";
+  font-size: 14px !important;
   font-weight:200 !important;
   padding: 10px 30px 10px 30px !important;
-  border: 3px solid #87ABC5 !important;
+  border: 3px solid #4071BF !important;
 }
 
 html, body {
