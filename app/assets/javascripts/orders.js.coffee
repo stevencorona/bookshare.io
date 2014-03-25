@@ -8,15 +8,15 @@ $ ->
     if $(this).is(":checked")
       $("#donation_amount").html("$3.00")
       total = ($("#total_amount").data("amount") + 300)
-      $("#total_amount b").html("$" + total / 100.0)
-      $("#total_charge").html("$" + total / 100.0)
+      $("#total_amount b").html("$" + (total / 100.0).toFixed(2))
+      $("#total_charge").html("$" + (total / 100.0).toFixed(2))
       $("#total_amount").data("amount", total)
 
     else
       $("#donation_amount").html("$0.00")
       total = ($("#total_amount").data("amount") - 300)
-      $("#total_amount b").html("$" + total / 100.0)
-      $("#total_charge").html("$" + total / 100.0)
+      $("#total_amount b").html("$" + (total / 100.0).toFixed(2))
+      $("#total_charge").html("$" + (total / 100.0).toFixed(2))
       $("#total_amount").data("amount", total)
 
   handler = StripeCheckout.configure {
