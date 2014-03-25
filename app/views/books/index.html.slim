@@ -11,7 +11,7 @@
 
   .row#books
     - @books.each do |book|
-      .col-md-3
+      .col-md-3.col-sm-4
         .book
           a href=book_url(book.isbn)
             =book_cover_image(book, class: @selected.include?(book.isbn) ? "cover selected" : "cover")

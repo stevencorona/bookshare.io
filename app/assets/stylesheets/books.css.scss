@@ -4,7 +4,6 @@
 
 .jumbotron {
   background-color: #fff;
-  height: 300px;
 }
 
 .jumbotron h1 {
@@ -23,10 +22,14 @@ h2, h3 {
 }
 
 h4, h5 {
-  font-family: "jaf-facitweb";
+  font-family: "clavo";
 }
 
 p.lead {
+font-family: "freight-sans-pro";
+}
+
+p {
   font-family: "freight-sans-pro";
 }
 
@@ -36,17 +39,16 @@ p.lead {
 
 #questions .panel {
   margin-top:50px;
-  height: 200px;
   font-size: 15px;
-  font-family: "Helvetica Neue";
+  font-family: "freight-sans-pro";
   box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px !important;
-  border: 3px solid #93AACE;
+  border: 3px solid #4071BF;
   background-color: #fff;
   color: #333;
 }
 
 #questions .panel-heading {
-  background-color: #93AACE;
+  background-color: #4071BF;
   color: #fff;
   border: 0px;
   border-radius:0px;
@@ -72,11 +74,10 @@ img.cover {
 }
 
 #books .col-md-3 {
-  height:320px;
 }
 
 .book {
-  height:300px;
+  margin-bottom: 25px;
 }
 
 .selected {

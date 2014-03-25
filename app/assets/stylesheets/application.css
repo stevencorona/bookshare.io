@@ -13,10 +13,16 @@
  *= require_tree .
  */
 
+.container, .container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 950px; /* or 950px */
+}
+
 .navbar-bookshare {
     background-color:#fff;
     color:#333;
-    border-bottom: 3px solid #E0E5EC !important;
+    border-bottom: 1px solid #eee !important;
     border-radius: 0 !important;
     /*padding: 5px 20px 5px 20px;*/
 }
@@ -61,14 +67,14 @@
 #footer p.small {
   margin:0px !important;
   color: #666;
-  font-family: "jaf-facitweb";
+  font-family:"freight-sans-pro";
 }
 
 .btn {
   background-color: #fff !important;
   color: #333 !important;
   text-transform:uppercase;
-  font-family: "jaf-facitweb";
+  font-family: "freight-sans-pro";
   font-size: 14px !important;
   font-weight:400 !important;
   padding: 10px 30px 10px 30px !important;
@@ -116,11 +122,11 @@ html, body {
 }
 
 #push, #footer {
-  height: 120px;
+  height: 0px;
 }
 
 #footer {
-  background-color: #E0E5EC;
+  background-color: #fff;
 }
 
 #footer p {
