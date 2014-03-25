@@ -1,11 +1,11 @@
 class HandlingCalculator
 
   # USPS Media Mail (TODO: Dynamic Calculation)
-  DOMESTIC_BASE  = 269
-  DOMESTIC_POUND = 48
+  DOMESTIC_BASE  = 369
+  DOMESTIC_POUND = 95
 
   # Packing Materials
-  BOX_COST  = 40
+  BOX_COST  = 150
   TAPE_COST = 10
 
   # Payment Gateway

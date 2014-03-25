@@ -5,6 +5,11 @@
       p.lead I'm shipping your books using USPS Media Mail
       p This makes it super cheap to ship you the books, but I need to know your address so I can calculate the costs.
 
+      - if @order.errors.any?
+        .alert.alert-danger
+          - @order.errors.full_messages.each do |msg|
+            p =msg
+
       = form_tag "/orders/shipping", class: "form-horizontal" do |f|
         .form-group
           label.control-label.col-sm-3 for="order[name]" Name:

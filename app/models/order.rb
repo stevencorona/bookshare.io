@@ -5,6 +5,12 @@ class Order < ActiveRecord::Base
   has_many :books, through: :items
 
   validates_uniqueness_of :email, case_sensitive: false, allow_nil: true
+  validates_presence_of :name,     allow_nil: true
+  validates_presence_of :address1, allow_nil: true
+  validates_presence_of :city,     allow_nil: true
+  validates_presence_of :state,    allow_nil: true
+  validates_presence_of :zip,      allow_nil: true
+  validates_presence_of :country,  allow_nil: true
 
   state_machine attribute_name: :status do
     state :pending_info

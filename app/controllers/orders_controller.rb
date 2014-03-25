@@ -11,13 +11,15 @@ class OrdersController < ApplicationController
     @order.city     = params[:order][:city]
     @order.state    = params[:order][:state]
     @order.zip      = params[:order][:zip]
-    @order.country  = params[:order][:country]
+    @order.country  = "United States of America" # Force country for now
 
     # TODO: Handle error case
-    @order.save!
-    @order.shipment_manifest!
-
-    redirect_to payment_orders_path
+    if @order.save
+      @order.shipment_manifest!
+      redirect_to payment_orders_path
+    else
+      render :new
+    end
   end
 
   def payment
@@ -42,8 +44,6 @@ class OrdersController < ApplicationController
     @order.total_amount    = @shipment.total
     @order.donation_amount = @shipment.donation_rate
 
-    redirect_to order_path
-
     if @order.save
       @payment = Payment.new(@order)
       @payment.charge
@@ -58,6 +58,7 @@ class OrdersController < ApplicationController
         expires: 1.year.from_now
       }
     else
+      @order.email += "DUPLICATE"
       @order.duplicate!
     end
 
