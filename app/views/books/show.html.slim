@@ -34,3 +34,15 @@
               =link_to "Claim this book!", claim_book_path(@book.isbn), method: :post, class: "btn btn-primary btn-lg btn-block"
             br
             =amazon_link(@book, class: "btn btn-lg btn-default btn-block", target: "_new")
+
+  hr
+  - if @book.category.name == "Computers"
+    .row
+      .col-md-12
+        h3 Hey! Did you know I wrote a book on PHP?
+        img#scalingphp.pull-left src="https://s3.amazonaws.com/gumroad/files/9612823a1969f0d130b06daba187ce3f/original/Screen_20Shot_202013-02-26_20at_209.05.56_20PM.png"
+        p.lead
+          | I wrote a really badass book called <a href="http://scalingphpbook.com">Scaling PHP Applications.</a> It's 218 pages of
+          |  the most awesome, hard-to-find content on my experiences Scaling PHP to 30 million users at Twitpic. <a href="http://scalingphpbook.com">Check it out!</a>
+        p
+          | (Sorry for the shameless plug, but I saw that you were looking at computer books.)

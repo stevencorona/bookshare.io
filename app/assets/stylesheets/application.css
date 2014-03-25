@@ -27,6 +27,12 @@
     /*padding: 5px 20px 5px 20px;*/
 }
 
+#scalingphp {
+  width: 210px;
+  border-radius: 20px;
+  margin-right: 15px;
+}
+
 #navbar-main {
   padding-top:5px;
 }
