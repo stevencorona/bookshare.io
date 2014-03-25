@@ -5,18 +5,11 @@
         h1 I'm giving away my books
         p.lead
           b Take up to five for free.
-          |  No strings attached. Just pay a few bucks for shipping.
+          |  Just pay about $5 for shipping. No strings attached.
         br
         br
         a.btn.btn-primary.btn-lg href=books_path See what books I have
-
 .container
-  .row
-    .col-md-12
-      center
-        h2 Exactly how does it work?
-        p.lead Pick five books. Pay about $5 for flat-rate shipping. Get them in mail.
-
   .row#questions
     .col-md-4
       .panel.panel-default
@@ -42,6 +35,25 @@
           markdown:
             Everything. Fiction, to non-fiction, to technical books. I love to read. Check out the "Genre Listing"
             if you're only looking for a particular type.
+
+  .row
+    center
+      h2 Super cool! I want my own bookshare!
+    .col-md-7
+      p.lead Awesome! Bookshare.io is just an experiment right now and it's only setup for me to give away my books. Sign up for the mailing list and I'll let you know if I develop it into something more.
+      p.lead I put all of the code on GitHub, so if you're comfortable hosting your own, you can <a href="https://github.com/stevencorona/bookshare.io">grab it here</a>.
+    .col-md-5
+      .panel.panel-default
+        .panel-heading
+          h4.panel-title Get updates from bookshare.io
+        .panel-body
+          form#email-form role="form" action="http://scalingphpbook.us1.list-manage.com/subscribe/post?u=ba9c5a596f88fa86026dd89a2&amp;id=454881abcb" method="post"
+            .form-group
+              label for="EMAIL" Email Address
+              input.form-control type="email" name="EMAIL" placeholder="Your Email"
+              <div style="position: absolute; left: -5000px;"><input type="text" name="b_ba9c5a596f88fa86026dd89a2_454881abcb" value=""></div>
+            button.btn.btn-default type="submit" Sign up
+
 
   .row
     .col-md-12

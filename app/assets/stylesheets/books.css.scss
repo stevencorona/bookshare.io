@@ -37,25 +37,28 @@ p {
   margin-bottom: 60px;
 }
 
-#questions .panel {
-  margin-top:50px;
+.panel {
   font-size: 15px;
   font-family: "freight-sans-pro";
   box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px !important;
-  border: 3px solid #4071BF;
+  border: 3px solid #eee;
   background-color: #fff;
   color: #333;
+}
+
+#questions .panel {
+  border: 3px solid #4071BF;
+}
+
+.panel-heading {
+  background-color: #eee;
+  border: 0px;
+  border-radius:0px;
 }
 
 #questions .panel-heading {
   background-color: #4071BF;
   color: #fff;
-  border: 0px;
-  border-radius:0px;
-}
-
-#questions .panel-body {
-  margin: 15px 20px 0 20px;
 }
 
 img.cover {

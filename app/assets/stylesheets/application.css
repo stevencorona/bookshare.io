@@ -122,11 +122,11 @@ html, body {
 }
 
 #push, #footer {
-  height: 0px;
+  height: 120px;
 }
 
 #footer {
-  background-color: #fff;
+  background-color: #ccc;
 }
 
 #footer p {
@@ -136,6 +136,16 @@ html, body {
 #me {
   padding: 20px;
   border-radius: 90px;
+}
+
+#email-form {
+
+}
+
+#email-form input {
+}
+
+#email-form .btn {
 }
 
 @media (max-width: 767px) {
