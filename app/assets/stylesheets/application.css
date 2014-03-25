@@ -124,15 +124,15 @@ html, body {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -120px;
+  margin: 0 auto -60px;
 }
 
 #push, #footer {
-  height: 120px;
+  height: 60px;
 }
 
 #footer {
-  background-color: #ccc;
+  background-color: #fff;
 }
 
 #footer p {
