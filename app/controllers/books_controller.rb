@@ -16,7 +16,7 @@ class BooksController < ApplicationController
   end
 
   def categories
-    @categories = Category.all
+    @categories = Category.joins("JOIN books ON books.category_id = categories.id").where("books.status = 'avaliable'").group("categories.id")
   end
 
   def show
