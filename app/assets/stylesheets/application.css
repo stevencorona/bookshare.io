@@ -133,6 +133,11 @@ html, body {
   margin: 20px 0;
 }
 
+#me {
+  padding: 20px;
+  border-radius: 90px;
+}
+
 @media (max-width: 767px) {
   #footer {
     margin-left: -20px;
