@@ -1,0 +1,16 @@
+.container
+  .row
+    .col-md-offset-4.col-md-4.well
+      - if flash[:error]
+        .alert.alert-warning
+          p Yeah, that was wrong
+      h3 Login and all that jazz
+
+      =form_tag admin_sessions_path
+        .form-group
+          label Username
+          input.form-control type="text" name="username"
+        .form-group
+          label Password
+          input.form-control type="password" name="password"
+        button.btn.btn-primary type="submit" Login
