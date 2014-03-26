@@ -22,6 +22,11 @@ Bookshare::Application.routes.draw do
     end
   end
 
+  namespace :admin do
+    resources :sessions
+    resources :orders
+  end
+
   get '/faq' => 'pages#faq'
 
 end
