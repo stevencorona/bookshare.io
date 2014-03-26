@@ -20,8 +20,8 @@
 }
 
 .navbar-bookshare {
-    background-color:#fff;
-    color:#333;
+    background-color:#fff !important;
+    color:#333 !important;
     border-bottom: 1px solid #eee !important;
     border-radius: 0 !important;
     /*padding: 5px 20px 5px 20px;*/
@@ -38,8 +38,8 @@
 }
 
 .navbar-bookshare .navbar-nav > li > a {
-    color:#4B8FC3;
-    font-family: "freight-sans-pro";
+    color:#4B8FC3 !important;
+    font-family: "freight-sans-pro" !important;
     font-weight: 300;
     font-size: 18px;
 }
@@ -54,7 +54,7 @@
 }
 
 .navbar-bookshare .navbar-brand {
-    color:#333;
+    color:#333 !important;
     font-family: 'Poiret One', cursive;
     font-weight:800;
     font-size:31px;
