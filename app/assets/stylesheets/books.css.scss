@@ -22,15 +22,26 @@ h2, h3 {
 }
 
 h4, h5 {
-  font-family: "clavo";
+  font-family: "freight-sans-pro";
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+h5 {
+  font-size: 18px;
 }
 
 p.lead {
 font-family: "freight-sans-pro";
+font-weight: 300;
 }
 
 p {
   font-family: "freight-sans-pro";
+  font-size: 16px;
 }
 
 #questions {
