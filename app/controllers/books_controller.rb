@@ -38,7 +38,8 @@ class BooksController < ApplicationController
 
   def claim
     @book = Book.find_by_isbn!(params[:isbn])
-    @order.items << Item.new(book_isbn: @book.isbn)
+    @item = Item.new(book_isbn: @book.isbn, order_id: @order.id)
+    @item.save
     redirect_to book_path(@book.isbn)
   end
 

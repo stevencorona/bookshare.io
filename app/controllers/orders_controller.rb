@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def new
-    redirect_to order_path(@order) if @order.duplicate?
+    redirect_to order_path(@order.uuid) if @order.duplicate?
   end
 
   def shipping
@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
   def create
 
     # Prevent duplicate submission
-    return redirect_to order_path(@order) if @order.paid?
+    return redirect_to order_path(@order.uuid) if @order.paid?
 
     @order.email = params[:email]
     @order.token = params[:token]
@@ -48,8 +48,20 @@ class OrdersController < ApplicationController
       @payment = Payment.new(@order)
       @payment.charge
 
-      @order.reserve_books
       @order.paid!
+
+      @snagged = []
+
+      @order.items.each do |item|
+        begin
+          item.book.reserve!
+          item.status = "reserved"
+          item.save
+        rescue Exception
+          item.status = "snagged"
+          item.save
+        end
+      end
 
       OrderMailer.thank_you_email(@order).deliver
 
@@ -62,14 +74,14 @@ class OrdersController < ApplicationController
       @order.duplicate!
     end
 
-    redirect_to order_path(@order)
+    redirect_to order_path(@order.uuid)
 
   rescue Stripe::CardError => e
     @order.unreserve_books
   end
 
   def show
-    @order ||= Order.find(params[:id])
+    @order = Order.find_by_uuid(params[:id])
 
     render :duplicate if @order.duplicate?
   end

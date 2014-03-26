@@ -4,6 +4,13 @@ class Order < ActiveRecord::Base
   has_many :items
   has_many :books, through: :items
 
+  before_save :make_uuid
+
+
+  def make_uuid
+    self.uuid = SecureRandom.hex(16)
+  end
+
   validates_uniqueness_of :email, case_sensitive: false, allow_nil: true
   validates_presence_of :name,     allow_nil: true
   validates_presence_of :address1, allow_nil: true

@@ -5,6 +5,10 @@
 
   hr
 
+  - if @order.items.where("status = ?", :snagged).count > 0
+    .alert.alert-warning
+      p One of your items was snagged from you! That means someone else paid for shipping for one of the same books while you were checking out. I'll still send the rest of your books and will try send an extra (random) one!
+
   .row
     .col-md-6
       p.lead I'm going to send you these books
@@ -15,11 +19,13 @@
           tr
             th ISBN
             th Title
+            th
         tbody
-          - @order.books.each do |book|
+          - @order.items.each do |item|
             tr
-              td =book.isbn
-              td =book.title
+              td =item.book.isbn
+              td =item.book.title
+              td =item.status
     .col-md-3
       p.lead To this address
 

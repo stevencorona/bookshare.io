@@ -12,8 +12,8 @@ If you wouldn't mind sharing on social media, that'd be cool. Something like:
 ORDER DETAILS
 =============
 
-Order ID: <%= @order.id %> (https://bookshare.io/orders/<%= @order.id %>)
-Paid: <%= @order.total_amount %>
+Order ID: <%= @order.uuid %> (https://bookshare.io/orders/<%= @order.uuid %>)
+Paid: <%= @order.total_amount / 100.0 %>
 
 Your books:
 <% @order.books.each do |book| %>

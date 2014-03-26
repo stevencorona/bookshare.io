@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140320210007) do
+ActiveRecord::Schema.define(version: 20140326055131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,17 +43,18 @@ ActiveRecord::Schema.define(version: 20140320210007) do
   end
 
   create_table "items", force: true do |t|
-    t.integer  "order_id"
     t.string   "book_isbn"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "order_id"
+    t.string   "status"
   end
 
   add_index "items", ["book_isbn"], name: "index_items_on_book_isbn", using: :btree
-  add_index "items", ["order_id"], name: "index_items_on_order_id", using: :btree
 
-  create_table "orders", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+  create_table "orders", force: true do |t|
     t.string   "name"
+    t.string   "uuid"
     t.string   "email"
     t.string   "address1"
     t.string   "address2"
@@ -62,11 +63,11 @@ ActiveRecord::Schema.define(version: 20140320210007) do
     t.string   "zip"
     t.string   "country"
     t.string   "token"
+    t.string   "status"
     t.integer  "total_amount"
     t.integer  "donation_amount"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status"
   end
 
   add_index "orders", ["email"], name: "index_orders_on_email", using: :btree

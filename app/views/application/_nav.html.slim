@@ -17,6 +17,6 @@ nav.navbar.navbar-default.navbar-bookshare role="navigation"
           a#contact href="" Contact
 
       - if @order.paid?
-        a.button.btn.btn-success.navbar-btn.navbar-right href=order_path(@order) View Order
+        a.button.btn.btn-success.navbar-btn.navbar-right href=order_path(@order.uuid) View Order
       - unless @order.paid? || @order.books.count == 0
         a.button.btn.btn-success.navbar-btn.navbar-right href=new_order_path Pay for shipping!
