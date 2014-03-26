@@ -7,7 +7,7 @@ module BooksHelper
   end
 
   def book_cover_image(book, opts={})
-    opts[:width]   ||= 200
+    opts[:width]   ||= 201
     opts[:height]  ||= 300
     opts[:crop]    ||= "fill"
     opts[:gravity] ||= "north"
