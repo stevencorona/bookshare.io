@@ -1,0 +1,57 @@
+.container
+  .row
+    .col-md-offset-2.col-md-8#how
+      h2 How did you make Bookshare?
+      markdown:
+        I made bookshare.io in a weekend as an expirement to give away my books before I move to San Francisco in April.
+
+        **Here's the exact technology that I used to accomplish such a quick and successful launch.**
+
+        I wrote the webapp in Rails because it's what I can work the quickest in. The massive amount of gems also helps. [Puma](https://github.com/puma/puma) as my webserver and Postgres as my database.
+
+        Deploying and scaling webapps is one of my specialties (see my book on [Scaling PHP](http://scalingphpbook.com)), but I wanted to launch ASAP and didn't want to sink a bunch of time into setting up servers. I deployed to [Heroku](http://heroku.com) and put [CloudFlare](http://cloudflare.com) infront of the site.
+
+        I used a CDN because I knew that I'd get a ton of traffic and didn't want to risk the site going down. I launched running 6 Heroku Dynos
+
+        ### There's an app for that
+
+        I had to get all of my 130+ books into the webapp. The idea of typing in the titles, descriptions, and hunting down cover art for each book was daunting enough that it made me want to cancel the project. Instead, I made my first iOS App— a barcode scanner that can read the ISBN barcode from the back of a book and post it to the bookshare API.
+
+        I thought that it was going to be a ton of work, but it ended up being easier than I though it would be. It turns out that iOS 7 has a Barcode Scanning SDK built-in. You just tell it what kind of barcode you're looking for (ISBN-13 in my case), give it a callback, and it'll pass a string of numbers to your callback method everytime it spots a barcode. Neat.
+
+        I used [RubyMotion](http://rubymotion.com) to build the scanner and it ended up being a huge mistake. RubyMotion is cool, but for an iOS newb trying to do low-level AVFoundation work, it wasn't the best match. I would have been better suited sticking with Objective C.
+
+        <center>![](/assets/app.jpg)<br>
+        <small>An example of the iOS App in Action</small></center>
+
+        The iOS App posts the scanned ISBN number to an API endpoint in the Rails app. The endpoint pulls book data and cover art from [Google Books](http://books.google.com/) and [Amazon](http://amazon.com). Cover-art is dynamically resized on-demand by [Cloudinary](http://cloudinary.com). I could have skipped this and implemented resizing myself, but it was faster than setting up RMagick.
+
+        Payments for shipping are taken using the legendary [Stripe Checkout](http://stripe.com). It's one of my favorite tools to use.
+
+        Confirmation emails are sent through [MailGun](http://mailgun.com). Easy.
+
+        Here's a fun fact— the USPS API is ancient. To get an API key, you need to send them an email (which they only respond to M-F during business hours), and ask for access. It took them 6 days to get back to me. Luckily, [EasyPost](http://easypost.com) had my back and made it easy to programatically create (and pay for) shipping labels.
+
+        ### How did it handle during launch?
+        Great! There was a mob of traffic, but the site was speedy and responsive the whole time. No unexpected downtime, even with 50 or so retweets on Twitter.
+
+        **But.. I did have a bug!** I don't know how I didn't catch this in testing, but I released the site with a major problem around ordering and had to take down the site for an hour right after launching to refactor the code.
+
+        Basically, I was using a UUID as a primary key for one table, but had a foreign key to this table (from another) set as an integer. The foreign key was silently getting cast to zero in the database!
+
+        This bug lost the orders of the first 15 people and, unfortunately, they didn't get the books that they wanted (of course, I refunded them). Bummer!
+
+        ### Thoughts
+        Overall, the launch was a resounding success and I was able to get rid of most of my books. If there's one thing I can share with you, it's that being a builder, a modern "jack-of-all-trades", gives you an incredible amount of power to create things.
+
+        While I'm no expert at UI Design or building iOS Apps, I was able to launch a pretty polished full-featured expirement in less than 7 days.
+      .panel.panel-default
+        .panel-heading
+          h4.panel-title <b>Get updates from bookshare.io</b>
+        .panel-body
+          form#email-form role="form" action="http://scalingphpbook.us1.list-manage.com/subscribe/post?u=ba9c5a596f88fa86026dd89a2&amp;id=454881abcb" method="post"
+            .form-group
+              label for="EMAIL" Email Address
+              input.form-control type="email" name="EMAIL" placeholder="Your Email"
+              <div style="position: absolute; left: -5000px;"><input type="text" name="b_ba9c5a596f88fa86026dd89a2_454881abcb" value=""></div>
+            button.btn.btn-default type="submit" Sign up

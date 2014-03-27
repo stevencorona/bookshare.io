@@ -28,5 +28,6 @@ Bookshare::Application.routes.draw do
   end
 
   get '/faq' => 'pages#faq'
+  get '/how' => 'pages#how'
 
 end
