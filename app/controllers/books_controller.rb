@@ -6,7 +6,7 @@ class BooksController < ApplicationController
   protect_from_forgery except: [:create]
 
   def index
-    @books = Book.where(status: :avaliable).order("(ratings_count * average_rating) desc").page(params[:page]).per_page(BOOKS_PER_PAGE)
+    @books = Book.order("status, (ratings_count * average_rating) desc").page(params[:page]).per_page(BOOKS_PER_PAGE)
   end
 
   def category
