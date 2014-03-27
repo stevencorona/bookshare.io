@@ -98,6 +98,20 @@ img.cover {
   opacity:0.4;
 }
 
+.reserved {
+  opacity:0.4;
+}
+
+.book span.reserved_overlay {
+  position: relative;
+  background-color: #333;
+  color: #eee;
+  padding: 10px 150px 10px 10px;
+  top: -170px;
+  font-family: "freight-sans-pro";
+
+}
+
 .label {
   margin:2px;
 }
