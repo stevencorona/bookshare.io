@@ -1,35 +1,19 @@
 .container
   .row
     h2 Paid Orders
-    .col-md-12
-      table.table
-        thead
-          tr
-            th Name
-            th Amount
-            th Donation
-            th Email
-            th Time
-            th ID
-            th Order
+    .col-md-12.paid-orders
+      - @orders.each do |order|
+        .row
+          .col-md-6
+            p Order ID: #{order.id}
+            p Name: #{order.name}
+            p Total Amount: $#{order.total_amount / 100.0}
+            p Donation: $#{order.donation_amount / 100.0}
+            p Email: #{order.email}
+            p Updated At: #{order.updated_at}
 
-        - @orders.each do |order|
-          tr
-            td=order.name
-            td=order.total_amount / 100.0
-            td=order.donation_amount / 100.0
-            td=order.email
-            td=order.updated_at
-            td=order.id
-            td
-              table.table.table-condensed
-                - order.items.each do |item|
-                  - if item.status == "snagged"
-                    tr.danger
-                      td.small=item.book.title
-                  - elsif item.status == "reserved"
-                    tr.active
-                      td=item.book.title
-                  - else
-                    tr
-                      td=item.book.title
+          .col-md-6
+            h4 Books
+            - order.items.each do |item|
+              p #{item.book.title} (#{item.status})
+        hr
