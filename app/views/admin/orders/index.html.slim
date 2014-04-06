@@ -15,5 +15,5 @@
           .col-md-6
             h4 Books
             - order.items.each do |item|
-              p #{item.book.title} (#{item.status})
+              p #{item.book.try(:title)} (#{item.status})
         hr
