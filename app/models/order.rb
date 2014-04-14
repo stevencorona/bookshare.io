@@ -52,4 +52,38 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def shipment(weight)
+    EasyPost.api_key = '5YX1ixWcX8hPhNYkeilUkg'
+
+    to_address = EasyPost::Address.create(
+      :name => self.name,
+      :street1 => self.address1,
+      :street2 => self.address2,
+      :city => self.city,
+      :state => self.state,
+      :zip => self.zip
+    )
+    from_address = EasyPost::Address.create(
+      :company => 'Steve Corona',
+      :street1 => '1904 Grandview Ct',
+      :city => 'Mt Pleasant',
+      :state => 'SC',
+      :zip => '29464',
+    )
+
+    parcel = EasyPost::Parcel.create(
+      :predefined_parcel => "MediumFlatRateBox",
+      :weight => weight
+    )
+
+    shipment = EasyPost::Shipment.create(
+      :to_address => to_address,
+      :from_address => from_address,
+      :parcel => parcel,
+    )
+
+    shipment
+
+  end
+
 end

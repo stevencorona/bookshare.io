@@ -30,6 +30,7 @@ gem 'redcarpet'
 gem 'googlebooks'
 gem 'cloudinary'
 gem 'stripe'
+gem 'easypost'
 
 # Documentation stuff
 group :doc do

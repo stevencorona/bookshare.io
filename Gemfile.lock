@@ -52,6 +52,9 @@ GEM
     currencies (0.4.2)
     debug_inspector (0.0.2)
     dotenv (0.10.0)
+    easypost (2.0.11)
+      multi_json (>= 1.0.4, < 2)
+      rest-client (~> 1.4)
     erubis (2.7.0)
     execjs (2.0.2)
     foreman (0.63.0)
@@ -168,6 +171,7 @@ DEPENDENCIES
   cloudinary
   coffee-rails (~> 4.0.0)
   country_select
+  easypost
   foreman
   googlebooks
   jbuilder (~> 1.2)
