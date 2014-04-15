@@ -38,6 +38,10 @@ class Order < ActiveRecord::Base
       transitions to: :duplicate, from: [:pending_info, :pending_payment]
     end
 
+    event :ship do
+      transitions to: :shipped, from: [:paid]
+    end
+
   end
 
   def reserve_books
@@ -52,8 +56,9 @@ class Order < ActiveRecord::Base
     end
   end
 
-  def shipment(weight)
+  def shipment(weight, box="MediumFlatRateBox")
     EasyPost.api_key = '5YX1ixWcX8hPhNYkeilUkg'
+    #EasyPost.api_key = 'rZXXVviGZBmK0iJNFrEAeg'
 
     to_address = EasyPost::Address.create(
       :name => self.name,
@@ -72,7 +77,7 @@ class Order < ActiveRecord::Base
     )
 
     parcel = EasyPost::Parcel.create(
-      :predefined_parcel => "MediumFlatRateBox",
+      :predefined_parcel => box,
       :weight => weight
     )
 

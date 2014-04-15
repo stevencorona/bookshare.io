@@ -1,6 +1,11 @@
 .container
   .row
     h2 Paid Orders
+
+    p.lead
+      a href="#{@shipment.postage_label.label_url}" target="_new" Download Label
+      br
+      a href="/admin/orders" Back to Admin
     .col-md-12.paid-orders
       .row
         .col-md-4
@@ -15,6 +20,3 @@
           h4 Books
           - @order.items.each do |item|
             p #{item.book.try(:title)} (#{item.status})
-          .col-md-2
-            a.btn.btn-large href="/admin/orders/#{@order.id}/prepare" Prepare Shipment
-        hr

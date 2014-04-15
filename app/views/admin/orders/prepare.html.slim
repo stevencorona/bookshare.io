@@ -1,0 +1,47 @@
+.container
+  .row
+    h2 Prepare Shipment
+    .col-md-12.paid-orders
+      .row
+        .col-md-4
+          p Order ID: #{@order.id}
+          p Name: #{@order.name}
+          p Total Amount: $#{@order.total_amount / 100.0}
+          p Donation: $#{@order.donation_amount / 100.0}
+          p Email: #{@order.email}
+          p Updated At: #{@order.updated_at}
+
+        .col-md-6
+          h4 Books
+          - @order.items.each do |item|
+            p #{item.book.try(:title)} (#{item.status})
+
+      .row
+        .col-md-4
+          p.lead To this address
+          p
+            | <b>#{@order.name}</b> <br>
+            | #{@order.address1} <br>
+            - unless @order.address2.blank?
+              | #{@order.address2} <br>
+            | #{@order.city}, #{@order.state} #{@order.zip}<br>
+            | #{@order.country}
+        .col-md-4
+          p.lead Box and weight
+          form
+            select name="box"
+              option value="SmallFlatRateBox" Small
+              option value="MediumFlatRateBox" Medium
+              option value="LargeFlatRateBox" Large
+            br
+            br
+            input type="text" name="weight" value="" placeholder="weight"
+
+            br
+            br
+            input type="submit" value="See Price"
+
+        .col-md-4
+          - if @shipment
+            p.lead $#{@shipment.lowest_rate.rate} (#{@shipment.lowest_rate.service})
+            a.btn.btn-primary href="/admin/orders/#{@order.id}/buy?box=#{params[:box]}&weight=#{params[:weight]}" Buy Shipping Label
