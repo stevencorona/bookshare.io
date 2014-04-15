@@ -2,19 +2,20 @@
   .row
     h2 Paid Orders
     .col-md-12.paid-orders
-      .row
-        .col-md-4
-          p Order ID: #{@order.id}
-          p Name: #{@order.name}
-          p Total Amount: $#{@order.total_amount / 100.0}
-          p Donation: $#{@order.donation_amount / 100.0}
-          p Email: #{@order.email}
-          p Updated At: #{@order.updated_at}
+      - @orders.each do |order|
+        .row
+          .col-md-6
+            p Order ID: #{order.id}
+            p Name: #{order.name}
+            p Total Amount: $#{order.total_amount / 100.0}
+            p Donation: $#{order.donation_amount / 100.0}
+            p Email: #{order.email}
+            p Updated At: #{order.updated_at}
 
-        .col-md-6
-          h4 Books
-          - @order.items.each do |item|
-            p #{item.book.try(:title)} (#{item.status})
+          .col-md-6
+            h4 Books
+            - order.items.each do |item|
+              p #{item.book.try(:title)} (#{item.status})
           .col-md-2
             a.btn.btn-large href="/admin/orders/#{@order.id}/prepare" Prepare Shipment
         hr
