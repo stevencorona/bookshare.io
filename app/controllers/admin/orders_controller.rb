@@ -8,11 +8,10 @@ class Admin::OrdersController < AdminController
 
     if params[:box] && params[:weight]
       @shipment = @order.shipment(params[:weight], params[:box])
-    end
-
-    @shipment.rates.each do |rate|
-      if rate.service == "Priority"
-        @rate = rate
+      @shipment.rates.each do |rate|
+        if rate.service == "Priority"
+          @rate = rate
+        end
       end
     end
   end
