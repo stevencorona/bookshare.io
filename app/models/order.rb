@@ -77,7 +77,7 @@ class Order < ActiveRecord::Base
     )
 
     parcel = EasyPost::Parcel.create(
-      :predefined_parcel => box,
+      :predefined_package => box,
       :weight => weight
     )
 
