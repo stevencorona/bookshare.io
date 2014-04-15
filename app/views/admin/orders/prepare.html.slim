@@ -42,6 +42,6 @@
             input type="submit" value="See Price"
 
         .col-md-4
-          - if @shipment
-            p.lead $#{@shipment.lowest_rate.rate} (#{@shipment.lowest_rate.service})
+          - if @rate
+            p.lead $#{@rate.rate} (#{@rate.service})
             a.btn.btn-primary href="/admin/orders/#{@order.id}/buy?box=#{params[:box]}&weight=#{params[:weight]}" Buy Shipping Label
