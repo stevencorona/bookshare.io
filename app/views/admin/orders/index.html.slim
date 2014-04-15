@@ -17,5 +17,5 @@
             - order.items.each do |item|
               p #{item.book.try(:title)} (#{item.status})
           .col-md-2
-            a.btn.btn-large href="/admin/orders/#{@order.id}/prepare" Prepare Shipment
+            a.btn.btn-large href="/admin/orders/#{order.id}/prepare" Prepare Shipment
         hr
