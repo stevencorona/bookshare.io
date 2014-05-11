@@ -57,8 +57,6 @@ class Order < ActiveRecord::Base
   end
 
   def shipment(weight, box="MediumFlatRateBox")
-    EasyPost.api_key = '5YX1ixWcX8hPhNYkeilUkg'
-    #EasyPost.api_key = 'rZXXVviGZBmK0iJNFrEAeg'
 
     to_address = EasyPost::Address.create(
       :name => self.name,
