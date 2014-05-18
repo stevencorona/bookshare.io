@@ -1,11 +1,34 @@
-[![Stories in Ready](https://badge.waffle.io/stevencorona/bookshare.io.png?label=ready&title=Ready)](https://waffle.io/stevencorona/bookshare.io)
 # Bookshare.io
 
 I'm moving to San Francisco and I need to get rid of my (200+) books. I want them to go to good homes.
 
 **So I'm giving away all of my books for free**
 
-This is an free, open-source application.
+This is an free, open-source application. You check out the [Demo](http://bookshare.io), or [read about the project on my blog](http://stevecorona.com/experiment-in-sharinghow-i-launched-bookshareio-in-a-week/).
+
+# Setup
+This is a Rails 4 app, running on Heroku. It should be pretty simple to get started with just using the normal `git push heroku` flow.
+
+* I -do- use the full text search features of Postgres, so this will not work w/ MySQL or Sqlite out of the box
+* I use Mailgun for sending emails, Cloudinary for handling images, and Stripe for processing payments
+* Shipment labels are generated with EasyPost
+
+The application depends on the environmental variables—
+
+    CLOUDINARY_URL
+    STRIPE_PRIVATE_KEY
+    STRIPE_PUBLIC_KEY
+    SECRET_TOKEN
+    GOOGLE_ANALYTICS_ID
+    MAILGUN_API_KEY
+    MAILGUN_SMTP_LOGIN
+    MAILGUN_SMTP_PASSWORD
+    MAILGUN_SMTP_PORT
+    MAILGUN_SMTP_SERVER
+    SECRET_KEY_BASE
+    ADMIN_USERNAME
+    ADMIN_PASSWORD
+
 
 ### MIT License
     
