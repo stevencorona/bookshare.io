@@ -66,12 +66,14 @@ class Order < ActiveRecord::Base
       :state => self.state,
       :zip => self.zip
     )
+
+    # TODO Pull this from a config
     from_address = EasyPost::Address.create(
       :company => 'Steve Corona',
-      :street1 => '1904 Grandview Ct',
-      :city => 'Mt Pleasant',
-      :state => 'SC',
-      :zip => '29464',
+      :street1 => '',
+      :city => '',
+      :state => '',
+      :zip => '',
     )
 
     parcel = EasyPost::Parcel.create(
