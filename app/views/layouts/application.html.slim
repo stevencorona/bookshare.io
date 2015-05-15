@@ -1,7 +1,7 @@
 doctype html
 html lang="en"
   head
-    title bookshare
+    title Share Programming Books 
 
     =stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     <script type="text/javascript" src="//use.typekit.net/xfd0rvb.js"></script>
@@ -28,7 +28,8 @@ html lang="en"
     == render 'footer'
 
     == render 'google_analytics'
-    == render 'uservoice'
+    == render 'olark'
+    /!== render 'uservoice'
 
     =javascript_include_tag "application", "data-turbolinks-track" => true
     <script src="https://checkout.stripe.com/checkout.js"></script>

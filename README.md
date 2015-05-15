@@ -31,6 +31,11 @@ The application depends on the environmental variables—
     ADMIN_USERNAME
     ADMIN_PASSWORD
 
+# How to Add books
+
+    rails console
+    app.post '/books', {"token"=>"",  "isbn"=>'0321700694'}
+
 
 ### MIT License
     
