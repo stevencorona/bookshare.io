@@ -17,13 +17,13 @@ class BookLoader
 
   def publish
     book_data
-    book_cover
 
     @book.save
   end
 
   def book_data
     data = GoogleBooks.search("isbn:#{@isbn}").first
+
     @book.title          = data.title
     @book.description    = data.description
     @book.pages          = data.page_count
@@ -33,7 +33,10 @@ class BookLoader
     @book.ratings_count  = data.ratings_count  || 0
     @book.average_rating = data.average_rating || 0.0
 
+    puts data.image_link(:zoom => 4)
+
     book_category(data.categories)
+    upload_book_cover(data.image_link(:zoom => 4))
   end
 
   def book_category(category)
@@ -48,8 +51,8 @@ class BookLoader
   end
 
   def book_cover
-    url = "http://images.amazon.com/images/P/#{@book.isbn}.01.LZZZZZZZ.jpg"
-    upload_book_cover(url)
+  #  url = "http://images.amazon.com/images/P/#{@book.isbn}.01.LZZZZZZZ.jpg"
+  #  upload_book_cover(url)
   end
 
   def upload_book_cover(url)
