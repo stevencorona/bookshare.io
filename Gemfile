@@ -42,4 +42,4 @@ group :development do
   gem "binding_of_caller"
 end
 
-ruby '2.1.1'
+ruby '2.1.5'
